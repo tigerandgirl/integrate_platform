@@ -36,6 +36,12 @@ if(isPro){
         to: path.join(__dirname, Service.path)
       }
     ]),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, 'static/gentelella'),
+        to: path.join(__dirname, Service.path+'/gentelella')
+      }
+    ]),
     new CleanWebpackPlugin([Service.path],{
       root: __dirname,
       verbose: true,
@@ -97,7 +103,8 @@ module.exports = {
     extensions: ['.js','.jsx','.css','.less','.scss'],
     modules: [
       path.resolve(__dirname,'node_modules'),
-      path.resolve(__dirname,'./src')
+      path.resolve(__dirname,'./src'),
+      path.resolve(__dirname,'./static/gentelella')
     ],
     alias: {
       '@': path.resolve(__dirname,'./src'),

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ssc_ipweb.iml" filepath="$PROJECT_DIR$/.idea/ssc_ipweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/intergrate_platform.iml" filepath="$PROJECT_DIR$/.idea/ssc_ipweb.iml" />
     </modules>
   </component>
 </project>

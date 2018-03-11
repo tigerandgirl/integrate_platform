@@ -46,6 +46,7 @@ app.use(compression());
 app.use(devMiddleware);
 app.use(hotMiddleware);
 app.use(express.static('./dll'));
+app.use(express.static('./static'));
 var uri = Config.dev.host+':'+Config.dev.port //'http://localhost:' + port
 
 var _resolve

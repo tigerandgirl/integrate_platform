@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Router, Route, Link, IndexRoute, hashHistory} from 'react-router';
 
+import $ from 'jquery';
 import App from '@/containers/App';
 import Bundle from '@/bundle.js';
 
