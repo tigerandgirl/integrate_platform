@@ -1,5 +1,6 @@
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import * as channel from './channel_manage/reducer';
+import * as home from './home/reducer';
 import thunk from 'redux-thunk';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -9,7 +10,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 //   applyMiddleware(thunk)
 // );
 let store = createStore(
-  combineReducers({...channel}),
+  combineReducers({...home, ...channel}),
   composeEnhancers(applyMiddleware(thunk))
 );
 

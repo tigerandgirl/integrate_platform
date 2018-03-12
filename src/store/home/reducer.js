@@ -1,22 +1,38 @@
+import { combineReducers } from 'redux';
 import * as home from './action-type';
 
-let defaultState = {
-  orderSum: '', //金额
-  name: '', //姓名
-  phoneNo: '', //手机号
-  imgpath: '', //图片地址
-}
-// 首页表单数据
-export const formData = (state = defaultState , action = {}) => {
-  switch(action.type){
-    case home.SAVEFORMDATA:
-      return {...state, ...{[action.datatype]: action.value}};
-    case home.SAVEIMG:
-      return {...state, ...{imgpath: action.path}};
-    case home.CLEARDATA:
-      return {...state, ...defaultState};
-    default:
-      return state;
-  }
+// 设置数组函数，增加或者删减成员
+function arraySet(how, array, one) {
+    let index = array.indexOf(one)
+    let arr = array.concat()
+    switch (how) {
+        case 'add':
+            if (index === -1) arr.push(one)
+            return arr
+        case 'remove':
+            if (index > -1) arr.splice(index, 1)
+            return arr
+        default:
+            return arr
+    }
 }
 
+export function isSidebarShown(state = true, action) {
+    switch (action.type) {
+        case home.TOGGLE_SIDEBAR:
+            return action.state
+        default:
+            return state
+    }
+}
+
+export function activeMenus(menus = [], action) {
+    switch (action.type) {
+        case home.TOGGLE_MENU_UP:
+            return arraySet('remove', menus, action.index)
+        case home.TOGGLE_MENU_DOWN:
+            return arraySet('add', menus, action.index)
+        default:
+            return menus
+    }
+}

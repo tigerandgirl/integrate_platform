@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { toggleSidebar, setUserName } from '../../../actions/commonActions.js'
+import { toggleSidebar, setUserName } from '@/store/home/action.js'
 
 
 export class Top extends Component {

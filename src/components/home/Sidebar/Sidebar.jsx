@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 // 引入相关的action
-import { toggleMenuDown, toggleMenuUp, toggleMenuFocus } from '../../../../actions/commonActions.js'
+import { toggleMenuDown, toggleMenuUp, toggleMenuFocus } from '@/store/home/action.js'
 // 引入SidebarList组件
 import SidebarList from './SidebarList.jsx'
 
@@ -50,5 +50,3 @@ export class Sidebar extends Component {
 }
 
 export default Sidebar
-
-

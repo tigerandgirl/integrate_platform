@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import { Link } from 'react-router'
-import '../../../../static/gentelella/build/css/animation.css'
+import '@/less/gentelella/animation.css'
 
 const menus = [{
     icon: 'fa-wrench',
@@ -123,4 +123,3 @@ SidebarList.contextTypes = {
 
 
 export default SidebarList
-

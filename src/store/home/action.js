@@ -1,26 +1,21 @@
 import * as home from './action-type';
 
-// 保存表单数据
-export const saveFormData = (value, datatype) => {
-  return {
-    type: home.SAVEFORMDATA,
-    value,
-    datatype,
-  }
+/*
+ * action 创建函数
+ */
+
+export function toggleSidebar(state) {
+    return { type: home.TOGGLE_SIDEBAR, state }
 }
 
-// 保存图片地址
-export const saveImg = path => {
-  return {
-    type: home.SAVEIMG,
-    path,
-  }
+export function toggleMenuDown(index) {
+    return { type: home.TOGGLE_MENU_DOWN, index }
 }
 
-// 保存图片地址
-export const clearData = () => {
-  return {
-    type: home.CLEARDATA,
-  }
+export function toggleMenuUp(index) {
+    return { type: home.TOGGLE_MENU_UP, index }
 }
 
+export function setUserName(state) {
+    return { type: home.USER_NAME, state }
+}

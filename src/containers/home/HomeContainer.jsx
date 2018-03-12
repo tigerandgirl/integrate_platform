@@ -5,7 +5,7 @@ import Top from '@/components/home/Top.jsx'
 import Sidebar from '@/components/home/Sidebar'
 import '@/less/gentelella/animation.css'
 
-export class HomeContainer extends Component {
+class HomeContainer extends Component {
 	render() {
 		const that = this
 		const { dispatch, isActivedMenu, isSidebarShown } = that.props
@@ -22,7 +22,7 @@ export class HomeContainer extends Component {
 
 					<footer>
 						<div className="pull-right">
-							@godbasin
+							@ssc
 					</div>
 						<div className="clearfix"></div>
 					</footer>
