@@ -25,7 +25,7 @@ const menus = [{
     }]
 }, {
     icon: 'fa-sun-o',
-    text: '任务管理',
+    text: '通道管理',
     href: '/home/task'
 }]
 
