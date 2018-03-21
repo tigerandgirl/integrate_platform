@@ -10,6 +10,7 @@ import 'react-datepicker/dist/react-datepicker.min.css';
 import 'rc-checkbox/assets/index.css';
 import 'rc-tree/assets/index.css';
 import '@/less/refer/referStyle.css';
+import 'react-select/dist/react-select.css';
 
 // //import gentelella start
 // import 'gentelella/vendors/font-awesome/css/font-awesome.min.css';
@@ -26,7 +27,7 @@ import '@/less/refer/referStyle.css';
 // //import gentelella end
 
 
-import '@/less/ybz-index.less';
+import '@/less/index.less';
 
 const render = Component => {
   ReactDOM.render(

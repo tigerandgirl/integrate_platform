@@ -10,7 +10,6 @@ import 'react-datepicker/dist/react-datepicker.min.css';
 import 'rc-checkbox/assets/index.css'
 import 'rc-tree/assets/index.css'
 import './less/refer/referStyle.css';
-import './less/ybz-index.less';
 import GlobalStore from './stores/GlobalStore';
 import App from './containers/App';
 import Bundle from './bundle.js';

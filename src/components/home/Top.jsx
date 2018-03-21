@@ -10,8 +10,8 @@ export class Top extends Component {
             <div className="top_nav">
                 <div className="nav_menu">
                     <nav>
-                        <div className="">
-                            <i className="">FSSC集成平台</i>
+                        <div className="navbar toggle zone">
+                            <a id="menu_toggle"  onClick={() => { dispatch(toggleSidebar(isSidebarShown() ? false : true)); $('body').toggleClass('nav-md nav-sm') } }><i className="fa fa-bars"></i></a>
                         </div>
                         <ul className="nav navbar-nav navbar-right">
                             <li className="">

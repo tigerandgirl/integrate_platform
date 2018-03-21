@@ -8,7 +8,6 @@ export const getChannelData = () => {
     try{
       let result = await ChannelManageApi.queryAll();
       result.map(item => {
-        item.selectStatus = false;
         item.selectNum = 0;
         return item;
       })
@@ -30,21 +29,33 @@ export const togSelectChannel = index => {
   }
 }
 
-// 编辑通道
-export const editChannel = (index, selectNum) => {
-  return {
-    type: cha.EDITCHANNEL,
-    index,
-    selectNum,
+// 保存通道
+export const saveChannel = (params) => {
+  // 返回函数，异步dispatch
+  return async dispatch => {
+    try{
+      let result = await ChannelManageApi.save(params);
+      dispatch({
+        type: cha.SAVECHANNEL,
+        saveStatus:result.success
+      })
+    }catch(err){
+      console.error(err);
+    }
   }
 }
 
 // 删除通道
-export const delChannel = () => {
-  return {
-    type: cha.DELETECHANNEL,
+export const delChannel = (params) => {
+  // 返回函数，异步dispatch
+  return async dispatch => {
+    try{
+      let result = await ChannelManageApi.delete(params);
+      dispatch({
+        type: cha.DELETECHANNEL,
+      })
+    }catch(err){
+      console.error(err);
+    }
   }
 }
-
-
-

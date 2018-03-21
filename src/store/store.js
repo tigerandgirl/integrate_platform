@@ -1,7 +1,12 @@
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
-import * as channel from './channel_manage/reducer';
+import * as login from './login/reducer';
 import * as home from './home/reducer';
-import thunk from 'redux-thunk';
+import * as channel from './channel_manage/reducer';
+import * as erp from './erp_system_manage/reducer';
+
+import thunkMiddleware from 'redux-thunk';
+import promiseMiddleware from 'redux-promise-middleware'
+import logger from 'redux-logger'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -10,8 +15,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 //   applyMiddleware(thunk)
 // );
 let store = createStore(
-  combineReducers({...home, ...channel}),
-  composeEnhancers(applyMiddleware(thunk))
+  combineReducers({...login, ...home, ...erp, ...channel}),
+  composeEnhancers(applyMiddleware(thunkMiddleware,promiseMiddleware(),logger))
 );
 
 export default store;

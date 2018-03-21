@@ -85,7 +85,8 @@ if(!isPro){
   index.push('webpack-hot-middleware/client?reload=true','webpack/hot/only-dev-server')
 }
 module.exports = {
-  devtool: isPro ? '#source-map' : '#cheap-module-eval-source-map',
+ // devtool: isPro ? '#source-map' : '#cheap-module-eval-source-map',
+  devtool: '#source-map',
   //devtool: 'cheap-module-eval-source-map',
   entry: {
     index:index
@@ -114,6 +115,13 @@ module.exports = {
   },
   module: {
     // rules: [
+    loaders:[
+      {
+        test: /\.js[x]?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader?presets[]=es2015&presets[]=react',
+      },
+    ],
     rules: [
       {
         test: /\.(js|jsx)$/,

@@ -1,4 +1,5 @@
-import * as cha from './action-type';
+import { PENDING, FULFILLED, REJECTED } from 'redux-promise-middleware';
+import * as actiontype from './action-type';
 import Immutable from 'immutable';
 
 let defaultState = {
@@ -19,19 +20,31 @@ let defaultState = {
    * }]
    */
   dataList: [],
-  saveStatus: false
+  showModal: false, //默认对话框不显示
+  addOrUpdateModal: false //true为新增，false为更新
 }
 
-export const channelData = (state = defaultState, action) => {
+export const erpData = (state = defaultState, action) => {
   let imuDataList;
   let imuItem;
   switch(action.type){
-    case cha.GETCHANNEL:
+    case actiontype.GET:
       return {...state, ...action}
-    case cha.SAVECHANNEL:
+
+    case `${actiontype.SAVE}_${PENDING}`:
       return {...state, ...action}
-    case cha.DELETECHANNEL:
+    case `${actiontype.SAVE}_${FULFILLED}`:
       return {...state, ...action}
+    case `${actiontype.SAVE}_${REJECTED}`:
+      return {...state, ...action}
+
+    case actiontype.UPDATE:
+      return {...state, ...action}
+    case actiontype.DELETE:
+      return {...state, ...action}
+
+    case actiontype.OPENMODAL:
+      return {...state, showModal:true, ...action}
     default:
       return state;
   }

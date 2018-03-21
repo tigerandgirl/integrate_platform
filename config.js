@@ -6,10 +6,10 @@ module.exports = {
     publicPath: './',
     serverHost : "http://192.168.8.9:8080"
   },
-  sip: {
+  s94: {
     path: 'dist',
     publicPath: './',
-    serverHost : "https://sip.yonyoucloud.com"
+    serverHost : "http://20.10.80.94:8080"
   },
   s88: {
     path: 'dist',

@@ -1,6 +1,15 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux';
 
-export class Login extends Component {
+import { userLogin2, userLogout } from '@/store/login/action';
+
+class Login extends Component {
+	static propTypes = {
+    userState: PropTypes.object.isRequired,
+    userLogin2: PropTypes.func.isRequired,
+    userLogout: PropTypes.func.isRequired,
+  }
 	render() {
 		return (
 			<div>
@@ -34,22 +43,41 @@ export class Login extends Component {
 	}
 
 	loginSubmit() {
+		let that = this;
 		const username = this.refs.username.value.trim()
 		const password = this.refs.password.value.trim()
-		// console.log(JSON.stringify({username,password}).toString());
-		if (username === undefined || password === undefined) {
+		console.log(JSON.stringify({username,password}).toString());
+		if (username === undefined || password === undefined || username === '' || password === '') {
 			Notify({
 				title: '账户或密码不能为空',
 				type: 'error'
 			})
-			return
+		} else {
+			this.props.userLogin2({'username':username, 'password':password})
+			sessionStorage.setItem('username', username)
 		}
-		sessionStorage.setItem('username', username)
-		this.context.router.push('/home')
+
 	}
 
 	componentDidMount() {
 		$('body').attr('class', 'login')
+	}
+
+	componentWillReceiveProps(nextProps){
+		if(nextProps.userState.loginState !== this.props.userState.loginState){
+      const { userState } = nextProps
+			console.log('login success to home')
+			if(userState.loginState) {
+				this.context.router.push('/home')
+			} else{
+				Notify({
+					title: '账户或密码错误',
+					type: 'error'
+				})
+				return
+			}
+		}
+
 	}
 }
 
@@ -57,4 +85,9 @@ Login.contextTypes = {
 	router: React.PropTypes.object
 }
 
-export default Login
+export default connect(state => ({
+  userState: state.userState,
+}), {
+  userLogin2,
+  userLogout
+})(Login);

@@ -1,15 +1,18 @@
 @charset "UTF-8";
 .left_col {
-    background: #2A3F54;
+    width: 100%;
+    margin-top: 56px;
+    background: #5E6670;
     transition: all .5s ease-in-out;
 }
 
 .nav-sm .container.body .col-md-3.left_col {
     min-height: 100%;
-    width: 70px;
+    width: 0;
     padding: 0;
     z-index: 9999;
     position: absolute;
+    display: none;
     /* transition: all .5s ease-in-out; */
 }
 
@@ -29,8 +32,8 @@
 }
 
 .nav-sm .container.body .right_col {
-    padding: 10px 20px;
-    margin-left: 70px;
+    padding: 90px 20px;
+    margin-left: 0;
     z-index: 2;
 }
 
@@ -56,7 +59,7 @@
 
 .nav-sm .main_container .top_nav {
     display: block;
-    margin-left: 70px;
+    margin-left: 0;
     z-index: 2;
 }
 
@@ -65,6 +68,7 @@
     font-weight: 400;
     font-size: 10px;
     padding: 10px 5px;
+    background: #5E6670;
 }
 
 .nav-sm .nav.child_menu li.active,
@@ -133,7 +137,7 @@
 }
 
 .menu_section>ul {
-    margin-top: 10px;
+    margin-top: -50px;
 }
 
 .profile_pic {
@@ -206,7 +210,7 @@
     margin-right: 4px;
 }
 
-.nav-sm .menu_section {
+.active .menu_section {
     margin: 0;
 }
 
@@ -225,7 +229,9 @@
     border-bottom: 1px solid #D9DEE4;
     margin-bottom: 10px;
     width: 100%;
+    padding-right: 130px;
     position: relative;
+    height: 56px;
 }
 
 @media (min-width: 480px) {
@@ -236,7 +242,7 @@
 
 .nav-md .container.body .col-md-3.left_col {
     min-height: 100%;
-    width: 230px;
+    width: 160px;
     padding: 0;
     position: absolute;
     display: -ms-flexbox;
@@ -257,8 +263,8 @@ body .container.body .right_col {
 }
 
 .nav-md .container.body .right_col {
-    padding: 10px 20px 0;
-    margin-left: 230px;
+    padding: 90px 20px 10px 10px;
+    margin-left: 160px;
 }
 
 .nav_title {
@@ -418,12 +424,24 @@ body .container.body .right_col {
     color: #fff !important;
 }
 
+.navbar.toggle.zone {
+  width:160px;
+  height:56px;
+  text-align: center;
+  background:rgba(225,76,70,1);
+  border-radius: 0;
+}
+
 .top_nav .nav>li>a:focus,
 .top_nav .nav>li>a:hover,
 .top_nav .nav .open>a,
 .top_nav .nav .open>a:focus,
 .top_nav .nav .open>a:hover {
     background: #D9DEE4;
+}
+
+.top_nav .nav .navbar {
+  background: #E14C46;
 }
 
 body {
@@ -436,8 +454,12 @@ body {
 
 .main_container .top_nav {
     display: block;
-    margin-left: 230px;
+    margin-left: 0;
     transition: all .5s ease-in-out;
+}
+
+.main_container .top_nav .nav_menu {
+    position: fixed;
 }
 
 .no-padding {
@@ -700,6 +722,7 @@ a:focus {
     position: relative;
     display: block;
     cursor: pointer;
+    /*border-left: 5px solid #1ABB9C;*/
     /* transition: all .5s ease-in-out; */
 }
 
@@ -778,7 +801,7 @@ a:focus {
 
 .nav.side-menu>li.current-page,
 .nav.side-menu>li.active {
-    border-right: 5px solid #1ABB9C;
+    /*border-left: 5px solid #1ABB9C;*/
 }
 
 .nav li.current-page {
@@ -795,7 +818,7 @@ a:focus {
 
 .nav.side-menu>li.active>a {
     text-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0;
-    background: linear-gradient(#334556, #2C4257), #2A3F54;
+    background: #4A515D;
     box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16) 0 1px 0;
 }
 
@@ -885,6 +908,7 @@ a:focus {
 
 .toggle a i {
     font-size: 26px;
+    color: #FFF;
 }
 
 .nav.child_menu>li>a {

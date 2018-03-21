@@ -1,26 +1,26 @@
 import Server from './Server';
 import Config from '@/config';
 
-class ChannelManageApi extends Server{
+class ErpSystemManageApi extends Server{
 
     /**
      *  用途：查询通道列表
      *  @url /fiadapter_web/channel
-     *  返回success为true表示成功,false失败
+     *  返回http_code为200表示成功
      *  @method get
      *  @return {promise}
      */
     async queryAll(params = {}){
         try{
-            let result = await this.axios('get', Config.channelManage, params);
+            let result = await this.axios('get', Config.erpSystem, params);
             if(result && (result.data instanceof Object) && result.code === 1){
                 return result.data||[];
             }else{
                 let err = {
-                    tip: '查询通道列表数据失败',
+                    tip: '查询ERP列表数据失败',
                     response: result,
                     data: params,
-                    url: Config.channelManage,
+                    url: Config.erpSystem,
                 }
                 throw err;
             }
@@ -28,25 +28,49 @@ class ChannelManageApi extends Server{
             throw err;
         }
     }
-
     /**
-     *  用途：保存通道
-     *  @url /fiadapter_web/channel
+     *  用途：保存ERP
+     *  @url /fiadapter_web/erp
      *  返回success为true表示成功,false失败
      *  @method post
      *  @return {promise}
      */
-    async save(params = {}){
+    async saveData(params = {}){
         try{
-            let result = await this.axios('post', Config.channelManage, params);
+            let result = await this.axios('post', Config.erpSystem, params);
             if(result && (result.data instanceof Object) && result.success){
                 return result;
             }else{
                 let err = {
-                    tip: '保存通道列表失败',
+                    tip: '保存ERP列表失败',
                     response: result,
                     data: params,
-                    url: Config.channelManage,
+                    url: Config.erpSystem,
+                }
+                throw err;
+            }
+        }catch(err){
+            throw err;
+        }
+    }
+    /**
+     *  用途：修改ERP
+     *  @url /fiadapter_web/erp
+     *  返回success为true表示成功,false失败
+     *  @method put
+     *  @return {promise}
+     */
+    async updateData(params = {} , key ){
+        try{
+            let result = await this.axios('put', Config.erpSystem + '/'+key , params);
+            if(result && (result.data instanceof Object) && result.success){
+                return result;
+            }else{
+                let err = {
+                    tip: '保存ERP列表失败',
+                    response: result,
+                    data: params,
+                    url: Config.erpSystem,
                 }
                 throw err;
             }
@@ -56,23 +80,23 @@ class ChannelManageApi extends Server{
     }
 
     /**
-     *  用途：删除通道
-     *  @url /fiadapter_web/channel/{channelcode}
+     *  用途：删除ERP
+     *  @url /fiadapter_web/erp
      *  返回success为true表示成功,false失败
-     *  @method delete
+     *  @method put
      *  @return {promise}
      */
-    async delete(params = ""){
+    async deleteData(params = "" ){
         try{
-            let result = await this.axios('delete', Config.channelManage+`/${params}`);
+            let result = await this.axios('DELETE', Config.erpSystem + '/'+params );
             if(result && (result.data instanceof Object) && result.success){
-                return result.data||[];
+                return result;
             }else{
                 let err = {
-                    tip: '删除通道失败',
+                    tip: '删除ERP列表失败',
                     response: result,
                     data: params,
-                    url: Config.channelManage,
+                    url: Config.erpSystem,
                 }
                 throw err;
             }
@@ -160,4 +184,4 @@ class ChannelManageApi extends Server{
     }
 }
 
-export default new ChannelManageApi();
+export default new ErpSystemManageApi();

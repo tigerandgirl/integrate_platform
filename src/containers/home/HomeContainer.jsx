@@ -10,7 +10,7 @@ class HomeContainer extends Component {
 		const that = this
 		const { dispatch, isActivedMenu, isSidebarShown } = that.props
 		return (
-			<div className="container body">
+			<div className="container body" style={{"width":"100%","padding":"0"}}>
 				<div className="main_container">
 					<Sidebar dispatch={dispatch} isActivedMenu={isActivedMenu} isSidebarShown={isSidebarShown}></Sidebar>
 					<Top dispatch={dispatch} isSidebarShown={isSidebarShown}></Top>
@@ -19,13 +19,6 @@ class HomeContainer extends Component {
 							<div key={this.props.location.pathname}>{that.props.children}</div>
 						</ReactCSSTransitionGroup>
 					</div>
-
-					<footer>
-						<div className="pull-right">
-							@ssc
-					</div>
-						<div className="clearfix"></div>
-					</footer>
 				</div>
 			</div>
 		)

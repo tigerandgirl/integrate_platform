@@ -1,0 +1,465 @@
+/**************************** 友账表UI基础设计规范 start ***************************/
+
+// 主题
+@mainRed: #E14C46;                  // 用友红 （注：一级按钮、顶部导航背景色、部分按钮、背景文字等）
+@mainRedHover: #C71509;
+@mainRedFocus: #BD3630;
+@mainGreen: #666;                // 主题绿
+@mainGreenHover: #666;
+@mainGreenFocus: #666;
+@mainGreenLight: #D9F3F4;
+@backColor: #F9F9F9;                // 主内容区大背景色
+@lightBackColor:#FAFBFC;            // 首页财务桌面应用方块背景色
+
+// 文字
+@fontColorLevel1: #333333;          // 一级标题文字色
+@fontColorLevel2: #666666;          // 二级文字色
+@fontColorLevel3: #999999;          // 备注信息、不太重要文字色、表格不可编辑列字体色
+@fontColorLevel4: #8894A5;           //首页的图表的文字颜色
+
+// 导航
+@sideNavColor: #5F6671;             // 左侧导航背景色
+@sideNavHover: #4A515D;             // 左侧导航hover色
+@sideNavBorder: #606D7C;            // 左侧导航分割线色
+
+// tab
+@tabBorderColor: #CCCCCC;
+@tabBackColor: #E0E0E0;
+@tabBackHover: #F2F2F2;
+
+// 边框
+@borderColor: #E6E6E6;              // 边框色
+@borderHoverColor: #D3D3D3;         // 边框hover 灰色
+@borderHoverGreen: #00B39E;         // 边框hover 绿色
+@inputBorderColor: #E6E6E6;         // input 边框色
+@inputBorderFocus: #E6E6E6;         // input 获取焦点时的边框色
+
+// 按钮 input
+@btnDefaultBorder: #EEE;         // btn-default按钮边框色
+@btnPrimaryColor: #00B39E;          // 边框及背景色（基本绿）
+@btnPrimaryHover: #009886;          // btn-primary按钮背景色hover
+@btnPrimaryFocus: #008676;          // btn-primary按钮背景色focus
+
+// 列表 li options 等
+@listHoverBackColor: #00B39E;       // 列表 drop-menu等 列表项hover时背景色
+
+// 表格
+@gridHeaderBackColor: #F2F2F2;      // 表头背景色
+@girdBodyTrEvenColor: #FAFAFA;      // 表格各行变色
+@gridHoverBackColor: #EDECEC;       // 表格列表hover背景色
+
+// 重置部分bootstrap主题的色值 Level等级越高色值越浅
+//@primaryColorLevel1:;               // 深
+//@primaryColorLevel2:;               // 中
+//@primaryColorLevel3:;               // 浅
+@infoColorLevel1: #108EE9;
+@infoColorLevel2: #ADD8F7;
+@infoColorLevel3: #ECF6FD;
+@successColorLevel1: #65AF47;
+@successColorLevel2: #A7E1C4;
+@successColorLevel3: #EBF8F2;
+@warningColorLevel1: #FFBF00;
+@warningColorLevel2: #ADD8F7;
+@warningColorLevel3: #ECF6FD;
+@dangerColorLevel1: #F04134;
+@dangerColorLevel2: #FCCCA7;
+@dangerColorLevel3: #FEF3EB;
+
+// 其他色
+@photoColor: #A5ABB1;               // 默认头像色
+@placeholderColor: #C7C7C7;         // 辅助色，搜索框内提示颜色
+
+// z-index层级
+@navbarZ: 6000;
+
+// 状态色通用类 success warning error
+//.success { color: #5cb85c; }
+.success { color: @successColorLevel1; }  // 成功信息提示色通用类
+.warning { color: #f0ad4e; }              // 警告信息提示色通用类
+.danger  { color: @dangerColorLevel1; }   // 错误信息提示色通用类
+.error   { color: @dangerColorLevel1; }   // 错误信息提示色通用类
+.color-red { color: @mainRed; }          // ？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+.color-grey { color: @placeholderColor; } // placeholder提示颜色通用类
+.readonly { color: @fontColorLevel3; }    // 只读信息通用类
+.pointer-green {
+  color: @mainGreen;
+  &:hover {
+    color: @mainGreenHover;
+  }
+}
+
+/******************** 滚动条begin******************* */
+//::-webkit-scrollbar {
+//  width: 10px;
+//} /* 这是针对缺省样式 (必须的) */
+//::-webkit-scrollbar-track {
+//  background-color: @tabBackColor;
+//} /* 滚动条的滑轨背景颜色 */
+//
+//::-webkit-scrollbar-thumb {
+//  background-color: rgba(0, 0, 0, 0.2);
+//} /* 滑块颜色 */
+//
+//::-webkit-scrollbar-button {
+//  background-color:  @tabBackColor;
+//} /* 滑轨两头的监听按钮颜色 */
+//
+//::-webkit-scrollbar-corner {
+//  background-color: @fontColorLevel1;
+//} /* 横向滚动条和纵向滚动条相交处尖角的颜色 */
+/******************** 滚动条end******************* */
+/**************************** 友账表UI基础设计规范 end ***************************/
+
+body { color: @fontColorLevel1; }
+a {  color: @mainGreen;
+  &:hover { color: @btnPrimaryHover; }
+  &:focus { color: @btnPrimaryFocus; }
+}
+
+// 表格两边边框处理
+.table {
+  tbody {
+    //tr.border-none {
+    //  >td{ border-left: none; border-right: none;font-weight: 700;color:@fontColorLevel1; }
+    //}
+    //tr {
+    //  >td.border-none { border-left: none; border-right: none; }
+    //  >td.border-left-none { border-left: none; }
+    //  >td.border-right-none { border-right: none; }
+    //}
+  }
+}
+//@media (max-width: 1426px) {
+//  .content > .container { margin-left: 65px; }
+//}
+
+// 常用边框
+.b1-default { border: 1px solid @borderColor; }
+.bt1-default { border-top: 1px solid @borderColor; }
+.bb1-default { border-bottom: 1px solid @borderColor; }
+.b0{ border: 0; }
+.bt0{ border-top: none; }
+.bb0{ border-bottom: none; }
+
+// 重置 btn input input.form-control 样式
+.btn-toolbar {  margin-left: 0;  }
+.btn, input, select {  .br4;  }
+.btn:focus, .btn:active:focus, input:focus, select:focus {
+  outline: 0;
+  outline-offset: 0;
+}
+select {
+  border-color: @inputBorderColor;
+}
+input:focus, select:focus {
+  border-color: @inputBorderFocus;
+}
+.form-control {
+  .f12;
+  height: 32px;
+  border-color: @inputBorderColor;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  &:focus {
+    border-color: @inputBorderFocus;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+}
+.form-group .form-span{
+  line-height: 32px;
+}
+
+// 按钮统一样式
+.btn {
+  .f12;
+  padding: 6px 20px;
+  line-height: 18px;
+  &:active {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+}
+.btn.btn-primary {        // 重要按钮 主题色
+  background-color: @btnPrimaryColor;
+  border-color: @btnPrimaryColor;
+  box-sizing: border-box;
+  &:hover {
+    border-color: @btnPrimaryHover;
+    background-color: @btnPrimaryHover;
+  }
+  &:focus {
+    border-color: @btnPrimaryFocus;
+    background-color: @btnPrimaryFocus;
+  }
+}
+.btn.btn-default {        // 一般按钮
+  border-color: @btnDefaultBorder;
+  background-color: @backColor;
+  box-sizing: border-box;
+  &:hover {
+    color: @btnPrimaryHover;
+    border-color: @btnPrimaryHover;
+    //background-color: @btnPrimaryHover;
+  }
+  &:focus {
+    color: @btnPrimaryFocus;
+    border-color: @btnPrimaryFocus;
+    background-color: @backColor;
+  }
+}
+.btn.btn-default[disabled]:hover {
+  color: @fontColorLevel1;
+  border-color: @btnDefaultBorder;
+  background-color: @backColor;
+}
+.btn-account {          // 去除左右的内边距
+  //padding-right: 0;
+  //padding-left: 0;
+}
+.btn.btn-tag {
+  top: 0;
+  padding: 6px 12px 5px;
+}
+.icon-keyboard.iconfont {
+  .f24;
+  color: @fontColorLevel2;
+  padding: 6px 8px 5px;
+}
+.btn.btn-link {
+  color: @btnPrimaryColor;
+  &:hover, &:focus {
+    text-decoration: none;
+    color: @btnPrimaryFocus;
+  }
+}
+
+
+// react-bs-table 表格样式
+.react-bs-table-container { /*.pr;*/ }
+.react-bs-table.os-x .option-btns {
+  .pa;
+  right: 8px;
+}
+.react-bs-table {
+  .b0;
+  .br0;
+  .m0;
+  .fff;
+  height: auto !important;
+  .table .code-child td.acc-code {
+    padding-left: 22px;
+  }
+  .table-bordered {
+    border: 1px solid #ddd;
+  }
+  .table thead {
+    background-color: @gridHeaderBackColor;
+    tr th {
+      border-bottom-width: 0;
+      .f12;
+      font-weight: bold;
+    }
+  }
+  .table-table {  // 单元格td嵌套表格样式
+    .vm { .vm; }
+    .td0 { .p0; }
+    .table2 {
+      tr {
+        background-color: transparent;
+        border-bottom: 1px solid #ddd;
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+  input[type=checkbox] {
+    .m0;
+  }
+}
+.react-bs-container-header {  // 表头
+  overflow: initial;
+  //.table {
+  //  border-bottom: none;
+  //}
+  &.border-none th{
+    border: 0;
+    &.border-right{
+      border-right: 1px solid @borderColor;
+    }
+  }
+  &.row-span2{
+    th{
+      padding: 10px 8px;
+      font-weight: 500;
+    }
+  }
+  thead tr {
+    th { padding: 5px 8px; }
+    > th[rowspan="2"] {
+      padding: 19px 8px;
+    }
+  }
+}
+//.react-bs-container-body.scroll-x {
+//  overflow-x: scroll;
+//}
+.react-bs-container-body.table-table >table >tbody >tr {
+  >td {
+
+    border-bottom: 1px solid #ddd;
+  }
+  >td:first-child { .vm; }
+}
+.react-bs-container-body {    // 表体
+  //overflow: inherit;
+  overflow: initial;
+  height: auto !important;
+  table {
+    border-top: none;
+  }
+  tbody tr:nth-of-type(even) {
+   // background-color: @girdBodyTrEvenColor;
+  }
+  tbody tr:hover {
+    background-color: @gridHoverBackColor;
+    .option-col span {
+      color: @mainGreen;
+      &:hover {
+        .pointer;
+        color: @mainGreenHover;
+      }
+    }
+    //.option-btns {
+    //  .pa;
+    //  right: 8px;
+    //}
+    .cashflow-option{
+      .pa;
+      left: -20px;
+      a,span{
+        display: block;
+        width: 30px;
+        height: 18px;
+        font-size: 16px;
+      }
+    }
+  }
+  tbody tr td {
+    .f12;
+    border: none;
+    padding: 0 8px;
+    height: 35px;
+    line-height: 34px;
+    outline: none;
+    >div {
+      .ellipsis;
+    }
+  }
+  tbody tr td.border-right {
+    border-right: 1px solid @borderColor;
+  }
+  tbody tr td.border-left {
+    border-left: 1px solid @borderColor;
+  }
+  tbody tr .option-col span {
+    color: transparent;
+  }
+}
+// react-table 的 pagination
+.react-bs-table-pagination {
+  margin: 20px -15px;
+  ul.pagination {
+    .m0;
+  }
+}
+
+
+.react-bs-container-body tbody tr td.refer-form{
+  overflow: visible;
+}
+.react-bs-table-container {
+  .pagination>li a{
+     color: @mainGreen;
+  }
+  .pagination>li.active{
+    a{
+      color: @mainRed;
+      background: #fff;
+      border: 1px solid @mainRed;
+    }
+
+  }
+}
+.ssc-table-noborder{
+  .react-bs-table .table-bordered{
+    border: 0;
+
+  }
+}
+
+// 业务层代码
+.s-container{
+}
+.s-smNav{
+  background: #fff;
+  .h50;
+  .s-smNav-ul{
+    height: 50px;
+    li{
+      .fl;
+      span{
+        font-weight: bolder;
+        font-size: 16px;
+        margin: 0 20px;
+        line-height: 50px;
+      }
+      a{
+        line-height: 50px;
+        margin: 0 20px;
+        color: @mainGreen;
+        &:hover{
+          color: @mainGreen;
+        }
+      }
+      button{
+        background: @mainRed;
+        color: #fff;
+        padding: 4px 20px;
+        border-radius: 5px;
+        border: none;
+        float: left;
+        margin-top: 10px;
+      }
+    }
+    li.active{
+      a{
+        color: @mainRed;
+        padding-bottom: 8px;
+        border-bottom: 2px solid red;
+      }
+    }
+  }
+}
+
+.s-row-lab{
+  line-height: 30px;
+}
+.s-row-btn-sure{
+  background: @mainRed;
+  color: #fff;
+  padding: 7px 25px;
+  border-radius: 5px;
+  border: none;
+  float: left;
+}
+.s-row-btn-exit{
+  background: @btnDefaultBorder;
+  color: #333;
+  padding: 7px 25px;
+  border-radius: 5px;
+  border: none;
+  float: left;
+}

@@ -18,16 +18,13 @@ var Config = {
         referSassAndNc:serverUrl+'/node/queryRefJSON',
         referOtherUrl:serverUrl+'/node/getRefData'+requestHeader,
     },
-    stdreimburse:{
-        querystandarddata:serverUrl+'/nodeexpensestandard/querystandarddata' +requestHeader, // 查询报销标准数据接口
-        savestandarddata:serverUrl+'/nodeexpensestandard/savestandarddata'+requestHeader,   //保存
-        delstandarddata:serverUrl +'/nodeexpensestandard/deletestandarddata'+requestHeader,  //删除
-        updatestandarddata:serverUrl +'/nodeexpensestandard/updatestandarddata'+requestHeader,  //更新 or  编辑
-        referranksUrl:serverUrl +'/dutyLevel/findAll',   // 职级参照
-        referpostsUrl:serverUrl +'/duty/findAll',        // 职务参照
-        filternodeexpensestandarduser:serverUrl +'/filternodeexpensestandard/user', //用户查询
-        systemIsNc:serverUrl +'/node/systemIsNc', //1:nc系统   0:saas 系统
-    },
+
+    /**
+     * 用户登录接口
+     *  get方法查询用户信息
+     *  delete方法/fiadapter_web/login?username=admin&password=123456
+     */
+    login:serverUrl+'/fiadapter_web/login',
 
     /**
      * 通过管理接口
@@ -36,6 +33,7 @@ var Config = {
      *  delete方法/fiadapter_web/channel/{channelcode}
      */
     channelManage:serverUrl+'/fiadapter_web/channel',
+    erpSystem:serverUrl + '/fiadapter_web/erp'
 };
 
 export default Config;
